@@ -1,37 +1,25 @@
-## Welcome to GitHub Pages
+# Ambar Mendez
+### Melbourne, Australia - ambarmendez@gmail.com
 
-You can use the [editor on GitHub](https://github.com/ambarmendez/ambarmendez.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+To obtain an entry level `Python Developer` position where I can apply my skills in creating, maintaining or troubleshooting code. Long-term plans to achieve a `back-end developer` position. Spanish as a mother tongue.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Career History
 
-### Markdown
+**Web Developer** at WeDonate. Aug 2015 - Mar 2018 (2 years & 7 months)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Hands-on development of front and back end components. Works in an agile environment where will be required to effectively engage with team members to develop code that meets requirements, rather than relying on documentation.
 
-```markdown
-Syntax highlighted code block
+**IT HUB Volunteer Supervisor** at E-Focus. Oct 2014 - Feb 2015 (4 months)
 
-# Header 1
-## Header 2
-### Header 3
+Report any technical problems to our HUB Coordinator. Assist users in logging on to the computer, accessing the internet and using the printer or scanner if required. Troubleshoot small computer problems or report to Technical Volunteers.
 
-- Bulleted
-- List
+**Software Engineer** at Movilnet Telecommunications. Jan 2011 - Apr 2013 (2 years & 3 months)
 
-1. Numbered
-2. List
+Providing diagnosis to application failures. In addition, acting as a intermediate between software development third parties and the company, ensuring that queries and issues are solved following the company standards.
 
-**Bold** and _Italic_ and `Code` text
+## Education
 
-[Link](url) and ![Image](src)
-```
+**Python Programmer** from DataCamp, _Graduated 2019_
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+**Bachelor of Computer Science** from Central University of Venezuela (Venezuela), _Graduated 2005_
 
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ambarmendez/ambarmendez.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
