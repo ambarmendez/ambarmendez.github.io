@@ -1,7 +1,9 @@
-# Ambar Mendez
-### Melbourne, Australia - ambarmendez@gmail.com
+---
+layout: page
+title: About
+---
 
-To obtain an entry level `Python Developer` position where I can apply my skills in creating, maintaining or troubleshooting code. Long-term plans to achieve a `back-end developer` position. Spanish as a mother tongue.
+To obtain an entry level `Python Developer` position where I can apply my skills in creating, maintaining or troubleshooting code. Long-term plans to achieve a `Back-End developer` position. Spanish as a mother tongue.
 
 ## Career History
 
@@ -22,4 +24,3 @@ Providing diagnosis to application failures. In addition, acting as a intermedia
 **Python Programmer** from DataCamp, _Graduated 2019_
 
 **Bachelor of Computer Science** from Central University of Venezuela (Venezuela), _Graduated 2005_
-
