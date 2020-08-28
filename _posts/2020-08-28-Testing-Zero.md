@@ -14,7 +14,7 @@ it is the best of them all. In addition, we are going to do it by testing over a
 | :---: | :---: | --- |
 | 1 | **_Add one test_** | It will fail because there is nothing yet. What we did before was just a figment of our imagination. Again, start with the simplest test as you can. |
 | 2 | **_Make it pass_** | Please, just enough code to make the test pass no more. Even though you think you will need it in a not too far away future. Don't do it, please! The time will come, or should I said, the test will come when you would put that extra code. Always remember, baby steps. |
-| 3 | **_Refactoring_** | Just housekeeping for now, again the easiest way of refactoring: <ul><li>renaming variables and,</li><li>extracting code to a method, either if the piece of code is repetitive or just for the sake of making the process clearer.</li></ul> |
+| 3 | **_Refactoring_** | Just housekeeping for now, again the easiest way of refactoring: renaming variables and, extracting code to a method, either if the piece of code is repetitive or just for the sake of making the process clearer. |
 
 Enough of talking and more action. Bellow my first test:
 
