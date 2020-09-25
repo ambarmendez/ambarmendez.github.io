@@ -28,5 +28,6 @@ plugins:
   - jekyll-sitemap
 
 # Custom variables
+google_analytics : UA-178996274-1
 owner : "SomeHacker"
 year : "2020"
