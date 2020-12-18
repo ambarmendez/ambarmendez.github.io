@@ -1,18 +1,18 @@
 ---
-title: Keeping-History
+title: Keeping History
 published: true
 ---
 
-In this opportunity, we are going to introduce another tool that help us to keep
-a history of our code, which is called `git`, a version control system. Why this
-is important? Because change is the only thing is permanent not only in life but
+In this opportunity, we are going to introduce another tool that helps us to keep
+a history of our code, which is called `git`, a version control system. Why is this
+important? Because change is the only thing that is permanent not only in life but
 even more in programming. While we are learning there will be a lot of changes.
 
-That takes me to another observation about the exercises; if you are working
-along, trying to solve the challenges that we are facing during this journey,
-please **keep it don't throw it away**, just because it's different from mine.
+That takes me to another observation about the exercises. If you are working
+along, try to solve the challenges that we are facing during this journey.
+Please, **keep it don't throw it away**, just because it's different from mine.
 
-Remember, at the beginning
+Remember, in the beginning ...
 
 > 1. We play around trying to know a little bit more
 > 2. Then, we start to build from there.
@@ -85,7 +85,6 @@ class MyHTMLParser(HTMLParser):
         return False
 
     def get_link(self, attrs):
-        print(attrs)
         if len(attrs) == 1 and attrs[0][0] == 'href':
             return attrs[0][1]
 
@@ -141,7 +140,7 @@ Lastly, we start keeping records from this moment on ...
 
 ```
 $ mkdir quoting
-$ mv MyHTMLParser.py quoting/
+$ mv parser.py quoting/
 $ cd quoting
 $ git init
 $ echo '__pycache__/' > .gitignore
@@ -151,19 +150,19 @@ $ git commit -m 'Extract quotes from all pages'
 
 BUT WHAAAAAAT??? Calm down people that's just simple stuff like always =D
 
-> 1. Create a directory called `quoting/`
-> 2. Move the file which contains the code that we've being using, in my case is called `MyHTMLParser.py`
+> 1. Create a directory called `quoting/`.
+> 2. Move the file which contains the code that we've been using, in my case, is called `parser.py`.
 > 3. Change to the directory we just created.
-> 4. Initialize repository
-> 5. Add `.gitignore` file since is not necesary to keep records of compiled python
-> 6. Add changes to git
+> 4. Initialize repository.
+> 5. Add `.gitignore` file since it is not necessary to keep records of compiled python.
+> 6. Add changes to git.
 > 7. Commit the tracked changes.
 
-Yes, it is! It is that how much you need to learn and the way is long but at the
+Yes, it is simple stuff! For now, it is that how much you need to learn and the way is long but at the
 same time is fun because there is always something new to learn.
 
-As always it's not easy but be patience with yourself because there is ligth at
-the end of the tunnel, or there isn't? C'mon lets find out!
+As always it's not easy but be tolerant with yourself because there is light at
+the end of the tunnel, or there isn't? C'mon! Let's find out!
 
 Happy learning! =D or maybe not! =O
 

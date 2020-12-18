@@ -1,14 +1,14 @@
 ---
 title: Keeping Records
-published: true
+published: false
 ---
 
-What now? Before answering that we have to ask ourselves what we have because when 
-the execution of our [MyHTMLParser](https://ambarmendez.github.io/Keeping-History) 
-finished we are left with nothing not even the last batch of quotes from the last page; 
-in other words, our precious data should be available afterward for whatever we want 
-to do with it. For this, The Python Standard Library provides 
-[sqlite3 module](https://docs.python.org/3/library/sqlite3.html). But before that let's 
+What now? Before answering that we have to ask ourselves what we have. When
+the execution of our [MyHTMLParser](https://ambarmendez.github.io/Keeping-History)
+finished, we are left with nothing, not even the batch of quotes from the last page.
+In other words, our precious data should be available afterwards for whatever we want
+to do with it. For this, The Python Standard Library provides
+[sqlite3 module](https://docs.python.org/3/library/sqlite3.html). But before that, let's
 identify when and what we need to do:
 
  when | action
@@ -19,7 +19,7 @@ after db creation | table inspection
 
 In addition to the **database creation** we're going to include the creation of
 the table for storing the quotes extracted from the website, and it would be
-very simple, just the quote itself and the author.
+straightforward, just the quote itself and the author.
 
 ```python
 import sqlite3
@@ -32,7 +32,7 @@ with connection:
 connection.close()
 ```
 
-But before **quote insertion** a cleanning must be done since we need to provide
+But before **quote insertion** a cleaning must be done since we need to provide
 a list where each item on the list needs to be (quotation, author) tuple so we
 have to redefine the elements extracted from the parser.
 

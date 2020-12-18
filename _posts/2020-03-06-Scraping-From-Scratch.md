@@ -5,17 +5,22 @@ published: true
 
 There is plenty of information about [Web Scraping with Python](https://realpython.com/python-web-scraping-practical-introduction/), it is just an example.
 
-So, what is this one different from the others is that we are going to do it just with what it comes available in [The Python Standard Library](https://docs.python.org/3/library/), which offers the basis for extracting data from the web.
+What it makes this one different is that we are going to do it just with what it comes available in [The Python Standard Library](https://docs.python.org/3/library/), which offers the basis for extracting data from the web.
 
 So this process is a matter of:
-1. Choosing a webpage that have the desired data which is going to be extracted
-2. Examing carefully where the data is located
-3. Finally, extracting the data
+1. Choosing a webpage that has the desired data which is going to be extracted.
+2. Examing carefully where the data is located.
+3. Finally, making the extraction.
 
-Pretty match! That's all what need to be done. But How?
+Pretty match! That's all that needs to be done. But How?
 
-Let's dig a little bit more on **Examing carefully where the data is located**, we are talking about _web_
-term which is strongly related to HTML, I am not going to go on that road there is plenty of resouces talking about that. We are interested in how to parse an HTML file and how The Python Standard Library can help with that, which is under [Structured Markup Processing Tools](https://docs.python.org/3/library/markup.html) specifically [Simple HTML and XHTML parser](https://docs.python.org/3/library/html.parser.html) based on an example provided there we are going to deep a little be more.
+Let's start with **Examing carefully where the data is located**. We are talking
+about _web_ a term which is strongly related to [HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML), 
+I am not going to go on that road there is plenty of resources talking about
+that. Our focus will be about how to parse an HTML file and how The Python
+Standard Library can help us with that, which is under [Structured Markup Processing Tools](https://docs.python.org/3/library/markup.html)
+specifically [Simple HTML and XHTML parser](https://docs.python.org/3/library/html.parser.html). From
+an example provided there, we are going to start this journey.
 
 ```python
 from html.parser import HTMLParser
@@ -29,8 +34,8 @@ class MyHTMLParser(HTMLParser):
         self.tabs = ''
         for i in range(self.nested_level):
             self.tabs += ' '
+        print(self.tabs, '<', tag.upper(), ' level="', self.nested_level, '">', sep='')
 
-        print(self.tabs, tag.upper(), ', level:', self.nested_level)
         self.nested_level += 1
 
         for attr, value in attrs:
@@ -42,13 +47,14 @@ class MyHTMLParser(HTMLParser):
         for i in range(self.nested_level):
             self.tabs += ' '
 
-        print(self.tabs, tag.upper(), ', level:', self.nested_level)
+        print(self.tabs, '</', tag.upper(), ' level="', self.nested_level, '">', sep='')
 
     def handle_data(self, data):
-        print(self.tabs, "\tData     :", data)
+        if data.isprintable():
+              print(self.tabs, "\tData:", data)
 ```
 
-C'me on fellas play with it!
+C'mon fellas play with it!
 
 ```python
 parser = MyHTMLParser()

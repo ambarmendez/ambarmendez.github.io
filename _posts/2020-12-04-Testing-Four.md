@@ -1,22 +1,23 @@
 ---
-title: Testing Version Zero Iteration Three
+title: Testing Level Zero Iteration Four
 published: true
 ---
 
-What about a timeout error when fetching a second page? Or verify that the
-website keeps the same HTML rendering? Before jumping into action, let's put
-aside the tests for the script execution through command line interface because
-it adds an unnecessary complexity that is not worth it. The best thing to do is
-commit our time over a test that has value on verifying how our implementation
-behaves in a happy path and other paths not that happy.
+Wait! WHAT? We have just two test cases! Yet we have been doing so many
+corrections. Remember, the main idea is learning together, being curious, and
+making a lot of mistakes and that my friends take time. So keep calm,
+and have fun. When the feeling isn't fun anymore, it is better to take a break,
+go ahead and do something different.
 
-For this iteration, we are going to tackle the first situation mention before.
+Now back to business. What about a timeout error when fetching a second page? Or
+verify that the website keeps the same HTML rendering? For this iteration, we
+are going to tackle the first situation mention before.
 
 ```python
 def test_extracting_quotes_when_timeout_error_during_second_page_extraction(self):
     response_value = bytes("""
       <div class="quote">
-            <span class="text" itemprop="text">“The greatest enemy of knowledge is 
+            <span class="text" itemprop="text">“The greatest enemy of knowledge is
               not ignorance, it is the illusion of knowledge.”
             </span>
             <span>by <small class="author" itemprop="author">Stephen Hawking</small>
@@ -25,8 +26,8 @@ def test_extracting_quotes_when_timeout_error_during_second_page_extraction(self
         </div>
 
         <div class="quote">
-            <span class="text" itemprop="text">“People think that computer science is the art 
-              of geniuses but the actual reality is the opposite, just many people doing things 
+            <span class="text" itemprop="text">“People think that computer science is the art
+              of geniuses but the actual reality is the opposite, just many people doing things
               that build on each other, like a wall of mini stones.”
             </span>
             <span>by <small class="author" itemprop="author">Donald Knuth</small>
@@ -35,8 +36,8 @@ def test_extracting_quotes_when_timeout_error_during_second_page_extraction(self
         </div>
 
         <div class="quote">
-            <span class="text" itemprop="text">“Imagination is more important than knowledge.  For 
-              knowledge is limited, whereas imagination embraces the entire world, stimulating 
+            <span class="text" itemprop="text">“Imagination is more important than knowledge.  For
+              knowledge is limited, whereas imagination embraces the entire world, stimulating
               progress, giving birth to evolution.”
             </span>
             <span>by <small class="author" itemprop="author">Albert Einstein</small>
@@ -53,9 +54,9 @@ def test_extracting_quotes_when_timeout_error_during_second_page_extraction(self
         </nav>
     """, 'utf-8')
 
-    with patch('urllib.request.urlopen') as mock_urlopen: # (1)
+    with patch('tests.urlopen') as mock_urlopen: # (1)
         values = { # (2)
-          'http://quotes.toscrape.com/': MockResponse(response_value), 
+          'http://quotes.toscrape.com/': MockResponse(response_value),
           'http://quotes.toscrape.com/next/1': MockResponse('', code=408)
         }
 
@@ -73,18 +74,17 @@ def test_extracting_quotes_when_timeout_error_during_second_page_extraction(self
 
         self.assertNotEqual(mock_urlopen.call_args_list, [])
         mock_urlopen.assert_has_calls([
-          call('http://quotes.toscrape.com/'), call('http://quotes.toscrape.com/next/1')], 
+          call('http://quotes.toscrape.com/'), call('http://quotes.toscrape.com/next/1')],
           any_order=False
         )
-
-
 ```
 
 My, oh, my, so many things are happening in just one test.
 
 (1) Replacing the real `urlopen` method for a mocked one.
 (2) Pairing value of the argument during the call with an instance of [`MockResponse(...)`](https://ambarmendez.github.io/Testing-One) for the first time, and an exception through `MockResponse('', code=408)` for the second one.
-(3) Using an inner function enables us to have access to variables, `values`, inside the outer function. Even more, it enables to have access to that parameter received by the mocked method `urlopen` as well and return the class of interest. In a simplify action:
+(3) Using an inner function enables us to have access to variables, `values`, inside the outer function. Even more, it enables us to have access to that parameter received by the mocked method `urlopen` as well and return the class of interest. In a simplify action:
+
 ```
 >>> def outer(first):
 ...     def inner(second):
@@ -105,22 +105,48 @@ My, oh, my, so many things are happening in just one test.
 The result for the excecution test:
 
 ```
-$ python tests.py
-127.0.0.1 - - [02/Dec/2020 13:26:28] "GET / HTTP/1.1" 200 -
-127.0.0.1 - - [02/Dec/2020 13:26:28] "GET /page/2 HTTP/1.1" 200 -
+$ python -m unittest
+127.0.0.1 - - [18/Dec/2020 08:11:39] "GET / HTTP/1.1" 200 -
+url='http://localhost:40591/page/2'
+127.0.0.1 - - [18/Dec/2020 08:11:39] "GET /page/2 HTTP/1.1" 200 -
+url=None
 ..E
 ======================================================================
-ERROR: test_extracting_quotes_when_timeout_error_during_second_page_extraction (__main__.TestQuoting)
+ERROR: test_extracting_quotes_when_timeout_error_during_second_page_extraction (tests.TestQuoting)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "tests.py", line 176, in test_extracting_quotes_when_timeout_error_during_second_page_extraction
+  File "/tests.py", line 223, in test_extracting_quotes_when_timeout_error_during_second_page_extraction
     quote_list = get_quotes()
-  File "/quotation/parser.py", line 105, in get_quotes
+TypeError: get_quotes() missing 1 required positional argument: 'url'
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.009s
+
+FAILED (errors=1)
+```
+
+What about passing a default value to url, something like `def get_quotes(url=QUOTES_URL):`,
+that would fix the error instantly. Hit it again.
+
+```
+$ python -m unittest
+127.0.0.1 - - [18/Dec/2020 08:24:14] "GET / HTTP/1.1" 200 -
+url='http://localhost:55187/page/2'
+127.0.0.1 - - [18/Dec/2020 08:24:14] "GET /page/2 HTTP/1.1" 200 -
+url=None
+..E
+======================================================================
+ERROR: test_extracting_quotes_when_timeout_error_during_second_page_extraction (tests.TestQuoting)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tests.py", line 223, in test_extracting_quotes_when_timeout_error_during_second_page_extraction
+    quote_list = get_quotes()
+  File "/tests.py", line 20, in get_quotes
     url = urljoin(response.geturl(), next_page) if next_page else None
 AttributeError: 'MockResponse' object has no attribute 'geturl'
 
 ----------------------------------------------------------------------
-Ran 3 tests in 0.009s
+Ran 3 tests in 0.008s
 
 FAILED (errors=1)
 ```
@@ -137,6 +163,9 @@ def __enter__(self):
         raise URLError(408)
     return self
 ```
+
+Rerun the tests and solve the missing library: `from unittest.mock import patch, call`.
+
 And the last test for now.
 
 ```python

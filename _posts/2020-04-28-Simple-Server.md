@@ -1,9 +1,9 @@
 ---
 title: Simple Server
-published: true
+published: false
 ---
 
-Before keep going with our mini-project about [Scraping from Scratch](https://ambarmendez.github.io/Scraping-From-Scratch); in this opportunity, we are going to use a basic server from [PyMOTW-3](https://pymotw.com/3/http.server/). So have ready to use two command-line interfaces one for the server and another one for the client.
+Before keep going with our mini-project about [Scraping from Scratch](https://ambarmendez.github.io/Scraping-From-Scratch); in this opportunity, we are going to use a basic server from [PyMOTW-3](https://pymotw.com/3/http.server/). So have ready to use two command-line interfaces: one for the server and another one for the client.
 
 ```python
 from http.server import BaseHTTPRequestHandler, HTTPServer
@@ -50,7 +50,7 @@ def run(server_class=HTTPServer, handler_class=GetHandler):
 run()
 ```
 
-And our old and simple client. As you can see from our [previous example](https://ambarmendez.github.io/Scraping-Quotes) compare to the one is shown below the URL is completely different, which means the server is our own coumputer. Remember, this will help us to see what information and in what part of the message is receiving the server.
+And our old and simple client. As you can see from our [previous example](https://ambarmendez.github.io/Scraping-Quotes) compare to the one is shown below the URL is completely different, which means the server is our own computer. Remember, this will help us to see what information and in what part of the message is receiving the server.
 
 ```python
 import urllib.request
@@ -78,10 +78,10 @@ with urllib.request.urlopen(req) as response:
    print(the_page.decode())
 ```
 
-In an environment of scraping a website, the server where we are trying to extract data expect certain kind of request and we need to be able to build exactly what the server for that website is waiting to received then it will send back the appropiate response.
+In an environment of scraping a website, the server where we are trying to extract data expect certain kind of request. We need to be able to build what the server for that website is waiting to receive then it will send back the appropriate response.
 
-C'mon fellas! Explore, change the parameters, what about to use the browser on your phone. In this opportunity, we are going beyond the regular `Hello world` which is simple as well, but this is a little step further, don't you think? Be patient with yourself, of course, there will be mistakes, a lot of error and panic but it is ok that's what makes this life worth living.
+C'mon fellas! Explore, change the parameters, what about to use the browser on your phone. In this opportunity, we are going beyond the regular `Hello world` which is simple as well, but this is a little step further, don't you think? Be patient with yourself, of course, there will be mistakes, a lot of error and panic, but it is ok that's what makes this life worth living.
 
-See you later and remember
+See you later and remember ...
 
 Keep calm! Keep coding! =D

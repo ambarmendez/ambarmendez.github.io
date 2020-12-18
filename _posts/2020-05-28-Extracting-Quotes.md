@@ -3,12 +3,12 @@ title: Extracting Quotes
 published: true
 ---
 
-Now it is time to do some work fellas. For this part we require some help and it will come from a browser, there is an option which enables us to inspect the HTML and locate where is the data.
+Now it is time to do some work fellas. For this part, we require some help, and it will come from a browser, there is an option which enables us to inspect the HTML and locate where is the data.
 
 1. Just click on [quotes.toscrape.com](http://quotes.toscrape.com/).
-2. Then move the mouse over a quote right-click and select `Inspect` for [Chrome](https://developers.google.com/web/tools/chrome-devtools/dom#inspect) and `Inspect Element` for [Firefox](https://developer.mozilla.org/en-US/docs/Tools/Page_Inspector/How_to/Open_the_Inspector)
+2. Then move the mouse over a quote right-click and select `Inspect` for [Chrome](https://developers.google.com/web/tools/chrome-devtools/dom#inspect) or `Inspect Element` for [Firefox](https://developer.mozilla.org/en-US/docs/Tools/Page_Inspector/How_to/Open_the_Inspector)
 
-The content in the HTML received from the server is like a tree, each branch is a tag and we want some specific leaves so inspecting the code will help us to find out which path we have to follow. The levels help us to identify where is located the value, let's take the author as an example, we want the `<span>` that have ` class="author" ` and with a branch labeled by `<small>` and ` class="author" `
+The content in the HTML received from the server is like a tree, each branch is a tag, and we want some specific leaves so inspecting the code will help us to find out which path we have to follow. The levels allow us to identify where is located the value, let's take the author as an example, we want the `<span>` that have `class="author"` and with a branch labelled by `<small>` and `class="author"` as well.
 
 | level | type | content
 | :---: |  ---:|--------
@@ -27,7 +27,7 @@ The content in the HTML received from the server is like a tree, each branch is 
 |       | start tag | \</span\>|
 |       | end tag | \</div\> |
 
-Please be aware that I just took what is needed to illustrate the point and I have thrown away everything else. As you can see we are only interested in the specific pattern that was shown in the table. So, let's take our first version of [MyHTMLParser](https://ambarmendez.github.io/Scraping-From-Scratch) and after playing again with it, we have our first attempt to track down those precious leaves.
+Please, be aware that I just took a piece from the whole HTML document to illustrate the point, and I have thrown away everything else. As you can see, we are only interested in the specific pattern that was shown in the table. So, let's take our first version of [MyHTMLParser](https://ambarmendez.github.io/Scraping-From-Scratch), and after playing again with it, we have our first attempt to track down those precious leaves.
 
 ```python
 from html.parser import HTMLParser
@@ -43,20 +43,17 @@ class MyHTMLParser(HTMLParser):
         if tag == 'div':
             if self.is_job_card(attrs):
                 self.nested_level += 1
-                print(f'({self.nested_level}) <{tag.upper()}> recording is {"ON" if self.recording else "OFF"}')
                 return
         if tag == 'span':
             if self.nested_level == 1:
                 self.nested_level += 1
                 if self.is_quote_within_span(attrs):
                     self.recording = True
-                    print(f'({self.nested_level}) <{tag.upper()}> recording is {"ON" if self.recording else "OFF"}')
                     return
         if tag == 'small':
             if self.is_author_within_span(attrs):
                 self.nested_level += 1
                 self.recording = True
-                print(f'({self.nested_level}) <{tag.upper()}> recording is {"ON" if self.recording else "OFF"}')
                 return
 
     def is_job_card(self, attrs):
@@ -83,23 +80,20 @@ class MyHTMLParser(HTMLParser):
     def handle_data(self, data):
         if self.recording:
             self.extracted_data.append(data)
-            print('[Data]{}'.format(data))
+            print(data)
 
     def handle_endtag(self, tag):
         if tag == 'span' and self.nested_level == 2:
             self.recording = False
             self.nested_level -= 1
-            print('</%s> level = %d' % (tag.upper(), self.nested_level))
             return
         if tag == 'small' and self.nested_level == 3:
             self.recording = False
             self.nested_level -= 1
-            print('</%s> level = %d' % (tag.upper(), self.nested_level))
             return
         if tag == 'div' and self.nested_level == 1:
             self.recording = False
             self.nested_level = 0
-            print('</%s> level = %d' % (tag.upper(), self.nested_level))
             return
 
 
@@ -112,6 +106,6 @@ with urllib.request.urlopen('http://quotes.toscrape.com/') as response:
    parser.feed(the_page.decode())
 ```
 
-As you can see we are just extracting quotes from the first page. What about all the other pages? Now it is your time to toy around and see what can be done in order to get the remaining quotes from the rest of the pages.
+As you can see, we are just extracting quotes from the first page. What about all the other pages? Now, it is your time to toy around. See what can be done to get the remaining quotes from the rest of the pages.
 
 Happy coding! <:o)

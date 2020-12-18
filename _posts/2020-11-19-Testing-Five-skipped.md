@@ -1,13 +1,13 @@
 ---
 title: Oh, What a Mess! Time for Housekeeping
-published: true
+published: false
 ---
 
-We have been doing so many corrections that are difficult to know which tests are 
-going to stay for good, with what implementation, even the names of the function 
-does not help either, and that's okay there is no need for going fast. The main 
+We have been doing so many corrections that are difficult to know which tests are
+going to stay for good, with what implementation, even the names of the function
+does not help either, and that's okay there is no need for going fast. The main
 idea is learning together, being curious, and that my friends imply making a lot 
-of mistakes, keep calm, and have fun. With that being said, let's make a quick 
+of mistakes, keep calm, and have fun. With that being said, let's make a quick
 review of what we have done and building up what is going to stay.
 
 `no` -> **Iteration 0**: Reading from a file, and implementation in the same test file.
@@ -114,13 +114,13 @@ since it dependes how the import sentence was made.
 
 **Iteration 4**: Adding execution tests, and different files for implementation and test.
 
-At last, testing for the execution. Firstly, before separating the implementation from 
-the tests, execute tests, just to be sure and be sure. Next, make the separation and 
-execute tests again, to keep our sanity. Now, let's add the first test `test_extract_execution_by_cli(...)`, 
-execute tests, obviously, it fails, there is nothing implemented yet. Now, we add the 
+At last, testing for the execution. Firstly, before separating the implementation from
+the tests, execute tests, just to be sure and be sure. Next, make the separation and
+execute tests again, to keep our sanity. Now, let's add the first test `test_extract_execution_by_cli(...)`,
+execute tests, obviously, it fails, there is nothing implemented yet. Now, we add the
 simplest implementation to make the test pass.  
 
-Take into account that, in this iteration the `get_quotes()` call does not have a 
+Take into account that, in this iteration the `get_quotes()` call does not have a
 value given as a parmeter since in the method definition a default value is set.
 
 Happy coding!
