@@ -44,7 +44,7 @@ if __name__ == '__main__':
 ```
 
 Wait! WHAAAAAT? But why? Why reading from a file instead of making a request? For
-writing the first and easy test, I believe that reading from a [file](https://ambarmendez.github.io/Simple-Server/files/example.html) in
+writing the first and easy test, I believe that reading from a [file](https://ambarmendez.github.io/files/example.html) in
 our first attempt was the simplest way of building it without complicated even
 more than already is because of the nature of our problem which is relying on an
 external resource. Thinking again while I am writing this, it is still
