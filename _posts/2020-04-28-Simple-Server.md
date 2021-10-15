@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Simple Server
 published: true
 ---

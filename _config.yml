@@ -1,33 +1,42 @@
+# Setup
 title: Ambar Mendez
-description: "Python Developer"
+tagline: 'Software Developer'
+description: 'Too many little and simple things make a lot.'
+baseurl: /
+
+# Specify the author for blog posts
 author:
   name: "Ambar Mendez"
   email: "ambarmendez at gmail dot com"
   url: "https://ambarmendez.github.io/"
 
-baseurl: /
-
 source: .
 destination: ./_site
 permalink: /:title
-paginate: 4
+paginate: 10
 paginate_path: /page/:num/
 
-defaults:
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
+# defaults:
+#   -
+#     scope:
+#       path: ""
+#       type: "posts"
+#     values:
+#       layout: "post"
 
-future: true
+#future: true
+
+# Gems
 plugins:
+  - jekyll-gist
   - jekyll-seo-tag
   - jekyll-paginate
   - jekyll-sitemap
 
 # Custom variables
 google_analytics : UA-178996274-1
-owner : "SomeHacker"
-year : "2020"
+github:
+  repo: https://github.com/ambarmendez/ambarmendez.github.io
+# owner : "SomeHacker"
+# year : "2020"
+# version: 3.0.0

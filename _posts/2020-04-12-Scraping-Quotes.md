@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Scraping Quotes
 published: true
 ---

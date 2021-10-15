@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Scraping From Scratch
 published: true
 ---
@@ -15,7 +16,7 @@ So this process is a matter of:
 Pretty match! That's all that needs to be done. But How?
 
 Let's start with **Examing carefully where the data is located**. We are talking
-about _web_ a term which is strongly related to [HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML), 
+about _web_ a term which is strongly related to [HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML),
 I am not going to go on that road there is plenty of resources talking about
 that. Our focus will be about how to parse an HTML file and how The Python
 Standard Library can help us with that, which is under [Structured Markup Processing Tools](https://docs.python.org/3/library/markup.html)

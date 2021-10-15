@@ -3,7 +3,9 @@ layout: page
 title: About
 ---
 
+<p class="message">
 To obtain an entry level `Python Developer` position where I can apply my skills in creating, maintaining or troubleshooting code. Long-term plans to achieve a `Back-End developer` position. Spanish as a mother tongue.
+</p>
 
 ## Career History
 

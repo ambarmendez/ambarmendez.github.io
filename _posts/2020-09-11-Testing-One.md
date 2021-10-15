@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Testing Level Zero Iteration One
 published: true
 ---
